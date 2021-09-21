@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/Card.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/fonts/Scribbles.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/main.gd" type="Script" id=3]
+[ext_resource path="res://assets/color_square.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -52,6 +53,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -368.0
+margin_right = -2.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -59,69 +61,75 @@ __meta__ = {
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 361.0
+margin_right = 359.0
 margin_bottom = 1093.0
 scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
 margin_right = 340.0
-margin_bottom = 1355.0
+margin_bottom = 1565.0
 rect_min_size = Vector2( 340, 0 )
 custom_constants/separation = 15
 
-[node name="CardName" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+[node name="Reset" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
 margin_right = 340.0
-margin_bottom = 54.0
+margin_bottom = 60.0
+text = "Reset Card"
+
+[node name="CardName" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+margin_top = 75.0
+margin_right = 340.0
+margin_bottom = 129.0
 text = "Card Name"
 align = 1
 
 [node name="CardNameEdit" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 69.0
+margin_top = 144.0
 margin_right = 340.0
-margin_bottom = 133.0
+margin_bottom = 208.0
 text = "Card Name"
 max_length = 30
 
 [node name="CardCost" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 148.0
+margin_top = 223.0
 margin_right = 340.0
-margin_bottom = 202.0
+margin_bottom = 277.0
 text = "Card Cost"
 align = 1
 
 [node name="CardCostEdit" type="SpinBox" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 217.0
+margin_top = 292.0
 margin_right = 340.0
-margin_bottom = 281.0
+margin_bottom = 356.0
 max_value = 9.0
 value = 1.0
 align = 1
 
 [node name="CardType" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 296.0
-margin_right = 340.0
-margin_bottom = 350.0
-text = "Card Type"
-align = 1
-
-[node name="CardTypeEdit" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 365.0
+margin_top = 371.0
 margin_right = 340.0
 margin_bottom = 425.0
 text = "Card Type"
 align = 1
 
-[node name="CardText" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+[node name="CardTypeEdit" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer"]
 margin_top = 440.0
 margin_right = 340.0
-margin_bottom = 494.0
+margin_bottom = 500.0
+text = "Card Type"
+align = 1
+
+[node name="CardText" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+margin_top = 515.0
+margin_right = 340.0
+margin_bottom = 569.0
 text = "Card Text"
 align = 1
 
 [node name="CardTextEdit" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 509.0
+margin_top = 584.0
 margin_right = 340.0
-margin_bottom = 909.0
+margin_bottom = 984.0
 rect_min_size = Vector2( 0, 400 )
 custom_fonts/font = SubResource( 3 )
 text = "Insert Text here"
@@ -130,46 +138,107 @@ __meta__ = {
 }
 
 [node name="CardAttack" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 924.0
+margin_top = 999.0
 margin_right = 340.0
-margin_bottom = 978.0
+margin_bottom = 1053.0
 text = "Card Attack"
 align = 1
 
 [node name="CardAttackEdit" type="SpinBox" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 993.0
+margin_top = 1068.0
 margin_right = 340.0
-margin_bottom = 1057.0
+margin_bottom = 1132.0
 max_value = 20.0
 value = 1.0
 align = 1
 
 [node name="CardDefense" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 1072.0
+margin_top = 1147.0
 margin_right = 340.0
-margin_bottom = 1126.0
+margin_bottom = 1201.0
 text = "Card Defense"
 align = 1
 
 [node name="CardDefenseEdit" type="SpinBox" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 1141.0
+margin_top = 1216.0
 margin_right = 340.0
-margin_bottom = 1205.0
+margin_bottom = 1280.0
 max_value = 20.0
 value = 2.0
 align = 1
 
-[node name="ImageUpload" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 1220.0
+[node name="Color" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+margin_top = 1295.0
 margin_right = 340.0
-margin_bottom = 1280.0
+margin_bottom = 1349.0
+text = "Color"
+align = 1
+valign = 1
+
+[node name="Colors" type="GridContainer" parent="Panel/ScrollContainer/VBoxContainer"]
+margin_top = 1364.0
+margin_right = 340.0
+margin_bottom = 1415.0
+columns = 5
+
+[node name="Blue" type="TextureButton" parent="Panel/ScrollContainer/VBoxContainer/Colors"]
+modulate = Color( 0, 0.411765, 0.666667, 1 )
+margin_right = 39.0
+margin_bottom = 51.0
+texture_normal = ExtResource( 4 )
+
+[node name="Red" type="TextureButton" parent="Panel/ScrollContainer/VBoxContainer/Colors"]
+modulate = Color( 0.768627, 0.141176, 0.188235, 1 )
+margin_left = 43.0
+margin_right = 82.0
+margin_bottom = 51.0
+texture_normal = ExtResource( 4 )
+
+[node name="White" type="TextureButton" parent="Panel/ScrollContainer/VBoxContainer/Colors"]
+modulate = Color( 0.780392, 0.811765, 0.866667, 1 )
+self_modulate = Color( 0.929412, 0.670588, 0.313726, 1 )
+margin_left = 86.0
+margin_right = 125.0
+margin_bottom = 51.0
+texture_normal = ExtResource( 4 )
+
+[node name="Black" type="TextureButton" parent="Panel/ScrollContainer/VBoxContainer/Colors"]
+modulate = Color( 0.231373, 0.0784314, 0.262745, 1 )
+margin_left = 129.0
+margin_right = 168.0
+margin_bottom = 51.0
+texture_normal = ExtResource( 4 )
+
+[node name="Green" type="TextureButton" parent="Panel/ScrollContainer/VBoxContainer/Colors"]
+modulate = Color( 0.2, 0.596078, 0.294118, 1 )
+margin_left = 172.0
+margin_right = 211.0
+margin_bottom = 51.0
+texture_normal = ExtResource( 4 )
+
+[node name="ImageUpload" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+margin_top = 1430.0
+margin_right = 340.0
+margin_bottom = 1490.0
 text = "Upload Image"
 
 [node name="ExportCard" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
-margin_top = 1295.0
+margin_top = 1505.0
 margin_right = 340.0
-margin_bottom = 1355.0
+margin_bottom = 1565.0
 text = "Export Card"
 
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Reset" to="." method="_on_Reset_pressed"]
 [connection signal="text_changed" from="Panel/ScrollContainer/VBoxContainer/CardNameEdit" to="." method="_on_CardNameEdit_text_changed"]
+[connection signal="value_changed" from="Panel/ScrollContainer/VBoxContainer/CardCostEdit" to="." method="_on_CardCostEdit_value_changed"]
+[connection signal="item_selected" from="Panel/ScrollContainer/VBoxContainer/CardTypeEdit" to="." method="_on_CardTypeEdit_item_selected"]
+[connection signal="text_changed" from="Panel/ScrollContainer/VBoxContainer/CardTextEdit" to="." method="_on_CardTextEdit_text_changed"]
+[connection signal="value_changed" from="Panel/ScrollContainer/VBoxContainer/CardAttackEdit" to="." method="_on_CardStats_changed"]
+[connection signal="value_changed" from="Panel/ScrollContainer/VBoxContainer/CardDefenseEdit" to="." method="_on_CardStats_changed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Colors/Blue" to="." method="_on_Color_pressed" binds= [ Color( 0, 0.411765, 0.666667, 1 ) ]]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Colors/Red" to="." method="_on_Color_pressed" binds= [ Color( 0.768627, 0.141176, 0.188235, 1 ) ]]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Colors/White" to="." method="_on_Color_pressed" binds= [ Color( 0.929412, 0.670588, 0.313726, 1 ) ]]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Colors/Black" to="." method="_on_Color_pressed" binds= [ Color( 0.231373, 0.0784314, 0.262745, 1 ) ]]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Colors/Green" to="." method="_on_Color_pressed" binds= [ Color( 0.2, 0.596078, 0.294118, 1 ) ]]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/ImageUpload" to="." method="_on_ImageUpload_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/ExportCard" to="." method="_on_ExportCard_pressed"]

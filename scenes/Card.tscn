@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/ScribblesResource.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/Scribbles.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/Card.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 90
@@ -31,10 +32,11 @@ extra_spacing_char = 1
 extra_spacing_space = 2
 font_data = ExtResource( 2 )
 
-[node name="Control" type="Control"]
+[node name="Card" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 750, 1050 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
